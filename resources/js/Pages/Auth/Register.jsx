@@ -1,12 +1,8 @@
-import InputError from '@/Components/InputError';
-import InputLabel from '@/Components/InputLabel';
-import PrimaryButton from '@/Components/PrimaryButton';
-import TextInput from '@/Components/TextInput';
-import GuestLayout from '@/Layouts/GuestLayout';
-import { Head, Link, useForm } from '@inertiajs/react';
+import React from 'react';
+import { useForm } from '@inertiajs/inertia-react';
 
-export default function Register() {
-    const { data, setData, post, processing, errors, reset } = useForm({
+const Register = () => {
+    const { data, setData, post, processing, errors } = useForm({
         name: '',
         email: '',
         password: '',
@@ -15,106 +11,66 @@ export default function Register() {
 
     const submit = (e) => {
         e.preventDefault();
-
-        post(route('register'), {
-            onFinish: () => reset('password', 'password_confirmation'),
-        });
+        post('/register');
     };
 
     return (
-        <GuestLayout>
-            <Head title="Register" />
-
-            <form onSubmit={submit}>
+        <div className="flex flex-col items-center justify-center h-screen">
+            <h1 className="mb-4 text-xl">Register</h1>
+            <form onSubmit={submit} className="w-96">
                 <div>
-                    <InputLabel htmlFor="name" value="Name" />
-
-                    <TextInput
+                    <label htmlFor="name">Name</label>
+                    <input
+                        type="text"
                         id="name"
-                        name="name"
                         value={data.name}
-                        className="mt-1 block w-full"
-                        autoComplete="name"
-                        isFocused={true}
                         onChange={(e) => setData('name', e.target.value)}
                         required
+                        className="border rounded w-full px-3 py-2"
                     />
-
-                    <InputError message={errors.name} className="mt-2" />
+                    {errors.name && <div className="text-red-500">{errors.name}</div>}
                 </div>
-
-                <div className="mt-4">
-                    <InputLabel htmlFor="email" value="Email" />
-
-                    <TextInput
-                        id="email"
+                <div>
+                    <label htmlFor="email">Email</label>
+                    <input
                         type="email"
-                        name="email"
+                        id="email"
                         value={data.email}
-                        className="mt-1 block w-full"
-                        autoComplete="username"
                         onChange={(e) => setData('email', e.target.value)}
                         required
+                        className="border rounded w-full px-3 py-2"
                     />
-
-                    <InputError message={errors.email} className="mt-2" />
+                    {errors.email && <div className="text-red-500">{errors.email}</div>}
                 </div>
-
-                <div className="mt-4">
-                    <InputLabel htmlFor="password" value="Password" />
-
-                    <TextInput
-                        id="password"
+                <div>
+                    <label htmlFor="password">Password</label>
+                    <input
                         type="password"
-                        name="password"
+                        id="password"
                         value={data.password}
-                        className="mt-1 block w-full"
-                        autoComplete="new-password"
                         onChange={(e) => setData('password', e.target.value)}
                         required
+                        className="border rounded w-full px-3 py-2"
                     />
-
-                    <InputError message={errors.password} className="mt-2" />
+                    {errors.password && <div className="text-red-500">{errors.password}</div>}
                 </div>
-
-                <div className="mt-4">
-                    <InputLabel
-                        htmlFor="password_confirmation"
-                        value="Confirm Password"
-                    />
-
-                    <TextInput
-                        id="password_confirmation"
+                <div>
+                    <label htmlFor="password_confirmation">Confirm Password</label>
+                    <input
                         type="password"
-                        name="password_confirmation"
+                        id="password_confirmation"
                         value={data.password_confirmation}
-                        className="mt-1 block w-full"
-                        autoComplete="new-password"
-                        onChange={(e) =>
-                            setData('password_confirmation', e.target.value)
-                        }
+                        onChange={(e) => setData('password_confirmation', e.target.value)}
                         required
-                    />
-
-                    <InputError
-                        message={errors.password_confirmation}
-                        className="mt-2"
+                        className="border rounded w-full px-3 py-2"
                     />
                 </div>
-
-                <div className="mt-4 flex items-center justify-end">
-                    <Link
-                        href={route('login')}
-                        className="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                    >
-                        Already registered?
-                    </Link>
-
-                    <PrimaryButton className="ms-4" disabled={processing}>
-                        Register
-                    </PrimaryButton>
-                </div>
+                <button type="submit" disabled={processing} className="mt-4 bg-blue-500 text-white rounded px-4 py-2">
+                    Register
+                </button>
             </form>
-        </GuestLayout>
+        </div>
     );
-}
+};
+
+export default Register;

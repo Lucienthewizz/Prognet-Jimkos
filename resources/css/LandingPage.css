@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 :root {
     --primary-color: #164ba1; /* Dark Blue */
@@ -16,10 +16,11 @@
 }
 
 body {
-    font-family: "Poppins", sans-serif;
-    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
     line-height: 1.6;
-    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9; 
 }
 
 /* === Navbar === */
@@ -164,6 +165,7 @@ nav ul li a:hover {
     color: var(--text-color);
     margin-bottom: 20px;
     line-height: 1.2;
+    font-weight: 600; 
 }
 
 .hero-content p {
@@ -221,6 +223,7 @@ nav ul li a:hover {
     font-size: 1.8rem;
     margin-bottom: 30px;
     color: var(--text-color);
+    font-weight: 600; 
 }
 
 .about-us-content {
@@ -276,6 +279,7 @@ nav ul li a:hover {
     font-size: 1.8rem;
     margin-bottom: 30px;
     color: var(--text-color);
+    font-weight: 600; 
 }
 
 .feature-list {
@@ -325,7 +329,8 @@ nav ul li a:hover {
     text-align: left;
     align-content: center;
     font-size: 1.8rem;
-    margin: 15px 0 30px;
+    margin: 15px 0 20px;
+    font-weight: 600;
     color: var(--text-color);
 }
 
@@ -338,7 +343,7 @@ nav ul li a:hover {
 
 .carousel-buttons {
     position: absolute; /* Set absolute positioning for buttons */
-    top: 20px; /* Adjust based on your design */
+    top: 25px; /* Adjust based on your design */
     right: 20px; /* Adjust based on your design */
     display: flex; /* Align buttons in a row */
 }
@@ -348,10 +353,10 @@ nav ul li a:hover {
     color: #fff;
     border: none;
     border-radius: 50%;
-    padding: 10px;
+    padding: 6px;
     width: 35px;
     height: 35px;
-    margin-left: 15px; /* Space between buttons */
+    margin-left: 15px; 
     cursor: pointer;
     transition: var(--transition);
 }
@@ -385,6 +390,7 @@ nav ul li a:hover {
 
 .kos-item h3 {
     font-size: 1.1rem;
+    font-weight: 550;
     margin: 15px;
     color: var(--text-color);
 }
@@ -444,6 +450,7 @@ nav ul li a:hover {
     text-align: center;
     font-size: 1.8rem;
     margin-bottom: 30px;
+    font-weight: 500;
     color: var(--text-color);
 }
 
@@ -490,10 +497,11 @@ nav ul li a:hover {
 }
 
 .testimonials h2 {
-    text-align: center; /* Center heading */
-    font-size: 2rem; /* Font size */
-    margin-bottom: 30px; /* Space below heading */
-    color: var(--primary-color); /* Use primary color for heading */
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: var(--primary-color);
+    font-weight: 600; 
 }
 
 .testimonial-list {
@@ -608,6 +616,7 @@ nav ul li a:hover {
     font-size: 1.8rem;
     margin-bottom: 15px;
     color: #164ba1;
+    font-weight: 600; 
 }
 
 .footer-logo p {
@@ -621,6 +630,7 @@ nav ul li a:hover {
     font-size: 1.2rem;
     color: var(--primary-color);
     margin-bottom: 20px;
+    font-weight: 600; 
 }
 
 .footer-links ul {
@@ -755,5 +765,18 @@ nav ul li a:hover {
 
     .social-media {
         justify-content: center;
+    }
+}
+@media screen and (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2rem; /* Reduce font size for mobile */
+    }
+    
+    .cta-button {
+        padding: 10px 20px; /* Adjust button size */
+    }
+    
+    .kos-item img {
+        height: 150px; /* Adjust image height for smaller devices */
     }
 }

@@ -1,3 +1,21 @@
-/* @tailwind base;
+@tailwind base;
 @tailwind components;
-@tailwind utilities; */
+@tailwind utilities;
+
+/* Custom styles */
+body {
+    @apply bg-background text-text;
+}
+
+a {
+    @apply text-primary transition duration-300 ease-in-out;
+}
+
+a:hover {
+    @apply text-secondary;
+}
+
+/* Modal styles */
+.modal {
+    @apply bg-white bg-opacity-90 backdrop-blur-lg rounded-lg p-6 shadow-lg;
+}
