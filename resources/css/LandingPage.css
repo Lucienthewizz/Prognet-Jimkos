@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
 :root {
-    --primary-color: #164BA1; /* Dark Blue */
-    --secondary-color: #ADB4BF; /* Grayish Blue */
+    --primary-color: #164ba1; /* Dark Blue */
+    --secondary-color: #adb4bf; /* Grayish Blue */
     --text-color: #333; /* Dark Text Color */
     --light-text-color: #666; /* Medium Gray */
-    --background-color: #F0F4FA; /* Very Light Blue */
+    --background-color: #f0f4fa; /* Very Light Blue */
     --transition: all 0.3s ease;
 }
 
@@ -16,7 +16,7 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: 16px;
     line-height: 1.6;
     color: var(--text-color);
@@ -156,11 +156,11 @@ nav ul li a:hover {
 
 .hero-content {
     flex: 1;
-    max-width: 600px;
+    max-width: 650px;
 }
 
 .hero-content h1 {
-    font-size: 2.5rem;
+    font-size: 2.9rem;
     color: var(--text-color);
     margin-bottom: 20px;
     line-height: 1.2;
@@ -193,7 +193,7 @@ nav ul li a:hover {
     justify-content: center; /* Center the images horizontally */
     align-content: center;
 }
-  
+
 .hero-images img {
     width: 500px; /* Adjust width as needed */
     height: auto; /* Maintain aspect ratio */
@@ -204,7 +204,6 @@ nav ul li a:hover {
 .hero-content h1 span {
     color: var(--primary-color);
 }
-
 
 /* === About Us Section === */
 .about-us {
@@ -259,12 +258,12 @@ nav ul li a:hover {
 .svg {
     width: 100%;
     height: 100%;
-    margin-top: 0px;
 }
 
 /* === Features Section === */
 .features {
-    padding: 60px 5%;
+    padding: 80px 5% 130px;
+    background-color: var(--background-color);
 }
 
 .features .container {
@@ -319,13 +318,46 @@ nav ul li a:hover {
 .popular-kos .container {
     max-width: 1300px;
     margin: 0 auto;
+    position: relative; /* Set relative positioning for absolute elements inside */
 }
 
 .popular-kos h2 {
-    text-align: center;
+    text-align: left;
+    align-content: center;
     font-size: 1.8rem;
-    margin-bottom: 30px;
+    margin: 15px 0 30px;
     color: var(--text-color);
+}
+
+.popular-kos .header {
+    display: flex;
+    justify-content: space-between; /* Aligns header and buttons */
+    align-items: center; /* Centers vertically */
+    margin-bottom: 20px; /* Space below header */
+}
+
+.carousel-buttons {
+    position: absolute; /* Set absolute positioning for buttons */
+    top: 20px; /* Adjust based on your design */
+    right: 20px; /* Adjust based on your design */
+    display: flex; /* Align buttons in a row */
+}
+
+.carousel-buttons button {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    width: 35px;
+    height: 35px;
+    margin-left: 15px; /* Space between buttons */
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.carousel-buttons button:hover {
+    background-color: var(--secondary-color);
 }
 
 .kos-list {
@@ -342,11 +374,12 @@ nav ul li a:hover {
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    height: 100%; 
 }
 
 .kos-item img {
     width: 100%;
-    height: 180px;
+    height: 180px; 
     object-fit: cover;
 }
 
@@ -394,27 +427,16 @@ nav ul li a:hover {
     color: var(--primary-color);
 }
 
-.rating {
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
-}
-
-.rating i {
-    color: rgb(221, 181, 2); /* Changed to yellow for rating */
-    margin:0 5px 0 15px;
-}
-
 /* === Register Kos Section === */
 .register-kos {
     padding: 60px 5%;
     background-color: #f5f5f5;
-    background-image: url(./images/Gambar-7.png);
+    background-image: url(./images/Gambar-7.jpg);
     background-size: cover;
     background-attachment: fixed;
     background-position: top;
-    background-blend-mode: overlay;
     max-width: 1300px;
+    border-radius: 4px;
     margin: 0 auto;
 }
 
@@ -434,10 +456,10 @@ nav ul li a:hover {
 }
 
 .btn-register-container {
-    display: flex;               
-    justify-content: center;      
-    align-items: center;          
-    height: 100%;                 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
 
 .btn-register {
@@ -458,45 +480,108 @@ nav ul li a:hover {
 
 /* === Testimonials Section === */
 .testimonials {
-    padding: 60px 5%;
-    background-color: #f9f9f9;
+    padding: 100px 5%;
+    background-color: #f9f9f9; /* Background color */
 }
 
 .testimonials .container {
     max-width: 1300px;
-    margin: 0 auto;
+    margin: 0 auto; /* Center container */
 }
 
 .testimonials h2 {
-    text-align: center;
-    font-size: 1.8rem;
-    margin-bottom: 30px;
-    color: var(--text-color);
+    text-align: center; /* Center heading */
+    font-size: 2rem; /* Font size */
+    margin-bottom: 30px; /* Space below heading */
+    color: var(--primary-color); /* Use primary color for heading */
 }
 
 .testimonial-list {
     display: flex;
     justify-content: space-between;
-    gap: 20px;
+    gap: 20px; /* Space between items */
 }
 
 .testimonial-item {
-    flex: 1;
-    background-color: #fff;
-    padding: 20px;
+    flex: 1; /* Make testimonial items flexible */
+    background-color: #ffffff; /* Background color for item */
+    padding: 20px; /* Inner padding */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    text-align: center; /* Center text */
+    margin-bottom: 65px; /* Space below item */
+    transition: var(--transition); /* For smooth hover effect */
+    display: flex; /* Enable flexbox */
+    flex-direction: column; /* Stack items vertically */
+    position: relative; /* For absolute positioning of content */
+}
+
+.user-image {
+    width: 60px; /* Adjust image size */
+    height: auto; /* Keep natural aspect ratio */
+    margin: 0 auto 10px; /* Center image and space below */
+}
+
+.testimonial-content {
+    flex: 1; /* Take remaining space */
+    display: flex;
+    flex-direction: column; /* Align children in a column */
+    align-items: center; /* Center align text */
+}
+
+.author {
+    font-weight: 500; /* Font weight for author name */
+    color: var(--primary-color); /* Use primary color for author name */
+    margin-bottom: 5px; /* Space below name */
+}
+
+.occupation {
+    font-size: 0.8rem; /* Font size for occupation */
+    color: #888; /* Gray color for occupation */
+    margin-bottom: 10px; /* Space below occupation */
+}
+
+.quote-box {
+    border: 1px solid #ddd; /* Optional: add a border */
+    padding: 20px; /* Inner padding */
+    height: 100px; /* Fixed height for the quote box */
+    display: flex; /* Use flexbox */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    text-align: center; /* Center text */
+    margin-top: 20px; /* Optional: space above the quote box */
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-item:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
 }
 
 .testimonial-item p {
-    font-size: 0.9rem;
-    color: var(--light-text-color);
-    margin-bottom: 10px;
+    font-size: 0.9rem; /* Font size for quotes */
+    color: #666; /* Quote text color */
+    margin: 0; /* No margin for paragraph */
 }
 
-.testimonial-item .author {
-    font-weight: 500;
-    color: var(--text-color);
+.swiper-pagination {
+    text-align: center; /* Center the pagination bullets */
+    position: relative; /* Adjust positioning */
+    margin-top: 20px; /* Space above pagination */
+    /* Add any additional styles you want for positioning */
+}
+
+.swiper-pagination-bullet {
+    width: 10px; /* Bullet width */
+    height: 10px; /* Bullet height */
+    background: #ccc; /* Inactive bullet color */
+    opacity: 0.7; /* Inactive bullet opacity */
+    border-radius: 50%; /* Circular bullets */
+    margin: 0 5px; /* Space between bullets */
+}
+
+.swiper-pagination-bullet-active {
+    background: var(--primary-color); /* Active bullet color */
+    opacity: 1; /* Full opacity for active bullet */
 }
 
 /* === Footer === */
@@ -522,7 +607,7 @@ nav ul li a:hover {
 .footer-logo h3 {
     font-size: 1.8rem;
     margin-bottom: 15px;
-    color: #164BA1;
+    color: #164ba1;
 }
 
 .footer-logo p {
@@ -531,7 +616,8 @@ nav ul li a:hover {
     margin-bottom: 20px;
 }
 
-.footer-links h4, .footer-contact h4 {
+.footer-links h4,
+.footer-contact h4 {
     font-size: 1.2rem;
     color: var(--primary-color);
     margin-bottom: 20px;
@@ -546,7 +632,8 @@ nav ul li a:hover {
     margin-bottom: 10px;
 }
 
-.footer-links ul li a, .footer-contact p {
+.footer-links ul li a,
+.footer-contact p {
     color: var(--text-color);
     text-decoration: none;
     transition: color 0.3s ease;
@@ -586,14 +673,15 @@ nav ul li a:hover {
 
 /* === Responsive === */
 @media screen and (max-width: 1000px) {
-    .nav-button, nav ul {
+    .nav-button,
+    nav ul {
         display: none;
     }
 
     .menu-toggle {
         display: flex;
     }
-      
+
     .hero-images img {
         width: 400px; /* Adjust width as needed */
         height: auto; /* Maintain aspect ratio */
@@ -601,11 +689,17 @@ nav ul li a:hover {
         border-radius: 8px; /* Optional: Add rounded corners */
     }
 
-    .feature-list, .kos-list, .testimonial-list, .footer-container {
+    .feature-list,
+    .kos-list,
+    .testimonial-list,
+    .footer-container {
         flex-direction: column;
     }
 
-    .feature-item, .kos-item, .testimonial-item, .footer-section {
+    .feature-item,
+    .kos-item,
+    .testimonial-item,
+    .footer-section {
         margin-bottom: 20px;
     }
 }
@@ -629,7 +723,7 @@ nav ul li a:hover {
     .hero-content h1 {
         font-size: 2rem;
     }
-    
+
     .hero-content p {
         font-size: 1rem;
         width: 80%;
@@ -641,7 +735,10 @@ nav ul li a:hover {
         display: none;
     }
 
-    .features, .popular-kos, .testimonials, .register-kos {
+    .features,
+    .popular-kos,
+    .testimonials,
+    .register-kos {
         padding: 40px 5%;
     }
 
