@@ -21,6 +21,14 @@ export default {
                 text: "#333", // Dark Text Color
                 "light-text": "#666", // Medium Gray
                 background: "#f0f4fa", // Very Light Blue
+                Lightgrey: "#F3F3F3", // Light Grey
+            },
+            maxWidth: {
+                '1300': '1300px', // Menambahkan max-w-1300
+            },
+            screens: {
+                'lgCustom': '1024px',
+                'Laptop' : '1300px',
             },
         },
     },

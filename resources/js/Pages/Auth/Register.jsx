@@ -26,7 +26,7 @@ const Register = () => {
                         value={data.name}
                         onChange={(e) => setData('name', e.target.value)}
                         required
-                        className="border rounded w-full px-3 py-2"
+                        className="w-full px-3 py-2 border rounded"
                     />
                     {errors.name && <div className="text-red-500">{errors.name}</div>}
                 </div>
@@ -38,7 +38,7 @@ const Register = () => {
                         value={data.email}
                         onChange={(e) => setData('email', e.target.value)}
                         required
-                        className="border rounded w-full px-3 py-2"
+                        className="w-full px-3 py-2 border rounded"
                     />
                     {errors.email && <div className="text-red-500">{errors.email}</div>}
                 </div>
@@ -50,7 +50,7 @@ const Register = () => {
                         value={data.password}
                         onChange={(e) => setData('password', e.target.value)}
                         required
-                        className="border rounded w-full px-3 py-2"
+                        className="w-full px-3 py-2 border rounded"
                     />
                     {errors.password && <div className="text-red-500">{errors.password}</div>}
                 </div>
@@ -62,10 +62,10 @@ const Register = () => {
                         value={data.password_confirmation}
                         onChange={(e) => setData('password_confirmation', e.target.value)}
                         required
-                        className="border rounded w-full px-3 py-2"
+                        className="w-full px-3 py-2 border rounded"
                     />
                 </div>
-                <button type="submit" disabled={processing} className="mt-4 bg-blue-500 text-white rounded px-4 py-2">
+                <button type="submit" disabled={processing} className="px-4 py-2 mt-4 text-white bg-blue-500 rounded">
                     Register
                 </button>
             </form>

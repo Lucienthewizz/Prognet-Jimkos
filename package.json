@@ -20,8 +20,11 @@
         "vite": "^5.0"
     },
     "dependencies": {
+        "@inertiajs/inertia": "^0.11.1",
         "@inertiajs/inertia-react": "^0.8.1",
+        "@lottiefiles/dotlottie-react": "^0.9.1",
         "@remixicon/react": "^4.2.0",
+        "lottie-react": "^2.4.0",
         "swiper": "^11.1.14"
     }
 }

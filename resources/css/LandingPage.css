@@ -24,7 +24,7 @@ body {
 }
 
 /* === Navbar === */
-nav {
+/* nav {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -128,7 +128,7 @@ nav ul li a:hover {
 .button_register:hover {
     opacity: 0.9;
     background-color: var(--secondary-color);
-}
+} */
 
 /* === Hamburger Menu === */
 .menu-toggle {
@@ -139,7 +139,7 @@ nav ul li a:hover {
 }
 
 /* === Hero Section === */
-.hero {
+/* .hero {
     background-image: url(../images/Gambar_5-removebg-preview3.png);
     background-size: 40%;
     background-position: bottom;
@@ -188,24 +188,25 @@ nav ul li a:hover {
 .cta-button:hover {
     background-color: var(--secondary-color);
     transform: translateY(-2px);
+    color: var(--background-color);
 }
 
 .hero-images {
     display: flex;
-    justify-content: center; /* Center the images horizontally */
+    justify-content: center; 
     align-content: center;
 }
 
 .hero-images img {
-    width: 500px; /* Adjust width as needed */
-    height: auto; /* Maintain aspect ratio */
-    margin: 0 auto; /* Add space between images */
-    border-radius: 8px; /* Optional: Add rounded corners */
+    width: 500px; 
+    height: auto; 
+    margin: 0 auto; 
+    border-radius: 8px; 
 }
 
 .hero-content h1 span {
     color: var(--primary-color);
-}
+} */
 
 /* === About Us Section === */
 .about-us {
@@ -264,7 +265,7 @@ nav ul li a:hover {
 }
 
 /* === Features Section === */
-.features {
+/* .features {
     padding: 80px 5% 130px;
     background-color: var(--background-color);
 }
@@ -312,7 +313,7 @@ nav ul li a:hover {
 .feature-item p {
     font-size: 0.9rem;
     color: var(--light-text-color);
-}
+} */
 
 /* === Popular Kos Section === */
 .popular-kos {
@@ -413,6 +414,12 @@ nav ul li a:hover {
     text-align: center;
     align-self: flex-end;
     margin-top: auto;
+    transition: var(--transition);
+}
+
+.btn-detail:hover {
+    background-color: var(--secondary-color);
+    color: var(--background-color);
 }
 
 .fasilitas {
@@ -483,6 +490,7 @@ nav ul li a:hover {
 .btn-register:hover {
     background-color: var(--secondary-color);
     transform: translateY(-2px);
+    color: var(--background-color);
 }
 
 /* === Testimonials Section === */
