@@ -20,7 +20,7 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9; 
+    background-color: white; 
 }
 
 /* === Navbar === */
@@ -375,11 +375,11 @@ nav ul li a:hover {
     flex: 1;
     background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.5px 2px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    height: 100%; 
+    height: 100%;
 }
 
 .kos-item img {
@@ -390,7 +390,7 @@ nav ul li a:hover {
 
 .kos-item h3 {
     font-size: 1.1rem;
-    font-weight: 550;
+    font-weight: 500;
     margin: 15px;
     color: var(--text-color);
 }
@@ -488,7 +488,6 @@ nav ul li a:hover {
 /* === Testimonials Section === */
 .testimonials {
     padding: 100px 5%;
-    background-color: #f9f9f9; /* Background color */
 }
 
 .testimonials .container {
