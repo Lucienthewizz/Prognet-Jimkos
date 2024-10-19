@@ -24,14 +24,20 @@ export default {
                 Lightgrey: "#F3F3F3", // Light Grey
             },
             maxWidth: {
-                '1300': '1300px', // Menambahkan max-w-1300
+                '1300': '1300px',
             },
             screens: {
                 'lgCustom': '1024px',
                 'Laptop' : '1300px',
             },
+            lineHeight: {
+                relaxed: '1.6', 
+            },
         },
     },
 
-    plugins: [forms],
+    plugins: [
+        forms,
+        require('daisyui'), // Correct way to include DaisyUI
+    ],
 };

@@ -2,6 +2,10 @@ import '../css/app.css';
 import "../css/LandingPage.css";
 import './bootstrap';
 
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+AOS.init();
+
 import { createInertiaApp } from '@inertiajs/react';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { createRoot } from 'react-dom/client';

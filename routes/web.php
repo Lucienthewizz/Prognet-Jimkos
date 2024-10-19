@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\LandingPageController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -10,6 +11,12 @@ use Inertia\Inertia;
 Route::get('/', function () {
     return Inertia::render('LandingPage');
 });
+
+// About Us Page
+Route::get('/about-us', function () {
+    return Inertia::render('AboutUsPage');
+});
+
 
 Route::fallback(function () {
     return Inertia::render('Errors/NotFound');
