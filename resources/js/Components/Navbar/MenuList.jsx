@@ -16,6 +16,7 @@ const MenuList = ({ isActive }) => {
                             isActive(item.href) ? "text-primary font-medium" : ""
                         }`}
                         href={item.href}
+                        preserveScroll={false}
                     >
                         {item.name}
                     </Link>

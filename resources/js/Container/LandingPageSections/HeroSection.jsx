@@ -3,7 +3,7 @@ import React from "react";
 const HeroSection = () => {
     return (
         <section
-            className="relative px-5 py-12 bg-gray-100 rounded-lg md:py-16 md:px-5 lg:py-24 lg:px-5"
+            className="relative px-5 py-12 bg-gray-100 rounded-lg md:py-16 md:px-5 lg:py-24 lg:px-5 lg:pb-48"
             style={{
                 backgroundImage: "url('/images/Backgrounds/Waves.jpg')",
                 backgroundSize: "cover",
@@ -14,7 +14,7 @@ const HeroSection = () => {
             data-aos="fade-up" // Add AOS attribute for the whole section
         >
             {/* Overlay */}
-            <div className="absolute inset-0 z-0 bg-white opacity-100 sm:opacity-85"></div>
+            <div className="absolute inset-0 z-0 bg-white opacity-100 sm:opacity-90"></div>
 
             <div className="flex flex-col md:flex-row md:justify-center lg:justify-between items-center justify-between max-w-[1300px] mx-auto relative z-10">
                 <div
@@ -46,7 +46,7 @@ const HeroSection = () => {
                 {/* Display image only on large screens */}
                 <div className="justify-center hidden mt-10 lg:flex md:mt-0" data-aos="fade-left"> {/* Add AOS attribute for the image */}
                     <img
-                        src="/images/Gambar-11.png"
+                        src="/images/Hero-Images.png"
                         alt="Kos di Jimbaran"
                         className="w-[300px] sm:w-[400px] lg:w-[500px] rounded-lg"
                     />

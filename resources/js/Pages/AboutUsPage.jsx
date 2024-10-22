@@ -6,6 +6,8 @@ import { Head } from "@inertiajs/react";
 import AboutUsSection from '@Container/AboutPageSections/AboutUsSection';
 import TeamSection from '@Container/AboutPageSections/TeamSection';
 import TimelineSection from '@Container/AboutPageSections/TimelineSection';
+import AboutUsDetails from '@Container/AboutPageSections/AboutUsDetail';
+
 
 const AboutUsPage = () => {
     return (
@@ -15,6 +17,9 @@ const AboutUsPage = () => {
                 
                 {/* About Us Section */}
                 <AboutUsSection />
+
+                {/* About Us Detail Section */}
+                <AboutUsDetails />
                 
                 {/* Timeline Section */}
                 <TimelineSection />
