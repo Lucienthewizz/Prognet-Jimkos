@@ -1,0 +1,84 @@
+{
+  "_PublicLayout-D1OY5Wyl.js": {
+    "file": "assets/PublicLayout-D1OY5Wyl.js",
+    "name": "PublicLayout",
+    "imports": [
+      "resources/js/app.jsx"
+    ]
+  },
+  "_index-CYePbO36.js": {
+    "file": "assets/index-CYePbO36.js",
+    "name": "index",
+    "imports": [
+      "resources/js/app.jsx"
+    ]
+  },
+  "resources/js/Pages/AboutUsPage.jsx": {
+    "file": "assets/AboutUsPage-B59WE7In.js",
+    "name": "AboutUsPage",
+    "src": "resources/js/Pages/AboutUsPage.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_PublicLayout-D1OY5Wyl.js"
+    ]
+  },
+  "resources/js/Pages/Auth/Login.jsx": {
+    "file": "assets/Login-3j3qxVRF.js",
+    "name": "Login",
+    "src": "resources/js/Pages/Auth/Login.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_index-CYePbO36.js"
+    ]
+  },
+  "resources/js/Pages/Auth/Register.jsx": {
+    "file": "assets/Register-DKXEQOIj.js",
+    "name": "Register",
+    "src": "resources/js/Pages/Auth/Register.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_index-CYePbO36.js"
+    ]
+  },
+  "resources/js/Pages/Errors/NotFound.jsx": {
+    "file": "assets/NotFound-BlI3uIJX.js",
+    "name": "NotFound",
+    "src": "resources/js/Pages/Errors/NotFound.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx"
+    ]
+  },
+  "resources/js/Pages/LandingPage.jsx": {
+    "file": "assets/LandingPage-UCs0OTWG.js",
+    "name": "LandingPage",
+    "src": "resources/js/Pages/LandingPage.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_PublicLayout-D1OY5Wyl.js"
+    ],
+    "css": [
+      "assets/LandingPage-CadXE96n.css"
+    ]
+  },
+  "resources/js/app.jsx": {
+    "file": "assets/app-CVEnJQhe.js",
+    "name": "app",
+    "src": "resources/js/app.jsx",
+    "isEntry": true,
+    "dynamicImports": [
+      "resources/js/Pages/AboutUsPage.jsx",
+      "resources/js/Pages/Auth/Login.jsx",
+      "resources/js/Pages/Auth/Register.jsx",
+      "resources/js/Pages/Errors/NotFound.jsx",
+      "resources/js/Pages/LandingPage.jsx"
+    ],
+    "css": [
+      "assets/app-Bk4EnQBR.css"
+    ]
+  }
+}
