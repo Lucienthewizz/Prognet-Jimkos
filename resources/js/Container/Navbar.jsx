@@ -11,50 +11,51 @@ import HamburgerMenu from "@Components/Navbar/HamburgerMenu";
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     const { url } = usePage();
+    const { user } = usePage().props; // Assuming `user` is available in props
 
     const openMenu = () => {
-        setMenuOpen(true); // Open sidebar
+        setMenuOpen(true);
     };
 
     const closeMenu = () => {
-        setMenuOpen(false); // Close sidebar
+        setMenuOpen(false);
     };
 
     return (
         <nav className="sticky top-0 z-50 w-full h-20 bg-white border-b border-lightgrey">
             <div className={`flex items-center justify-between w-full h-full max-w-[1350px] mx-auto px-5`}>
-                {/* Div for Hamburger Menu and Logo */}
                 <div className="flex items-center justify-between gap-5">
                     <HamburgerMenu toggleMenu={openMenu} isOpen={menuOpen} className="lg:hidden" />
                     <Logo />
                 </div>
-
-                {/* Menu List */}
                 <MenuList isActive={(path) => url === path} />
-
                 <div className="flex items-center space-x-4">
-                    {/* Search Bar */}
                     <SearchBar className="hidden lgCustom:block" />
-
-                    {/* Divider */}
                     <div className="hidden w-px h-10 bg-secondary lgCustom:block" />
-
-                    {/* Login and Register Buttons */}
+                    {/* Conditional Rendering for Login/Register or Logout */}
                     <div className="hidden space-x-4 nav-button lgCustom:flex">
-                        <Link href="/login">
-                            <PrimaryButton>Masuk</PrimaryButton>
-                        </Link>
-                        <Link href="/register">
-                            <SecondaryButton>Daftar</SecondaryButton>
-                        </Link>
+                        {user ? (
+                            <form action="/logout" method="POST" className="inline">
+                                @csrf
+                                <PrimaryButton type="submit">Logout</PrimaryButton>
+                            </form>
+                        ) : (
+                            <>
+                                <Link href="/login">
+                                    <PrimaryButton>Masuk</PrimaryButton>
+                                </Link>
+                                <Link href="/register">
+                                    <SecondaryButton>Daftar</SecondaryButton>
+                                </Link>
+                            </>
+                        )}
                     </div>
                 </div>
             </div>
-
-            {/* Sidebar Menu */}
             <SidebarMenu menuOpen={menuOpen} closeMenu={closeMenu} isActive={(path) => url === path} />
         </nav>
     );
 };
+
 
 export default Navbar;

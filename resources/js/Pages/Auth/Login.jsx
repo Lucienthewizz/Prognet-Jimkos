@@ -12,6 +12,10 @@ const Login = () => {
         post('/login');
     };
 
+    const handleGoogleLogin = () => {
+        window.location.href = '/auth/google'; // Redirect ke Google login
+    };
+
     return (
         <div className="flex flex-col items-center justify-center h-screen">
             <h1 className="mb-4 text-xl">Login</h1>
@@ -24,7 +28,7 @@ const Login = () => {
                         value={data.email}
                         onChange={(e) => setData('email', e.target.value)}
                         required
-                        className="border rounded w-full px-3 py-2"
+                        className="w-full px-3 py-2 border rounded"
                     />
                     {errors.email && <div className="text-red-500">{errors.email}</div>}
                 </div>
@@ -36,14 +40,24 @@ const Login = () => {
                         value={data.password}
                         onChange={(e) => setData('password', e.target.value)}
                         required
-                        className="border rounded w-full px-3 py-2"
+                        className="w-full px-3 py-2 border rounded"
                     />
                     {errors.password && <div className="text-red-500">{errors.password}</div>}
                 </div>
-                <button type="submit" disabled={processing} className="mt-4 bg-blue-500 text-white rounded px-4 py-2">
+                <button type="submit" disabled={processing} className="px-4 py-2 mt-4 text-white bg-blue-500 rounded">
                     Login
                 </button>
             </form>
+
+            {/* Tambahkan tombol Login dengan Google */}
+            <div className="mt-4">
+                <button
+                    onClick={handleGoogleLogin}
+                    className="px-4 py-2 text-white bg-red-500 rounded"
+                >
+                    Login dengan Google
+                </button>
+            </div>
         </div>
     );
 };
