@@ -35,8 +35,8 @@ const SidebarMenu = ({ menuOpen, closeMenu, isActive }) => {
                 {[
                     { name: "Beranda", href: "/" },
                     { name: "Tentang Kami", href: "/about-us" },
-                    { name: "Daftar Kos", href: "#" },
-                    { name: "Kontak", href: "#" },
+                    { name: "Daftar Kos", href: "/daftar-kost" },
+                    { name: "Kontak", href: "/kontak" },
                 ].map((item, index) => (
                     <li key={index} className="relative py-3">
                         <Link

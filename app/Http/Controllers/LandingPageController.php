@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
 class LandingPageController extends Controller
 {
     public function index()
     {
-        // Jika ada data dari database atau logika lain yang ingin ditambahkan
-        return Inertia::render('LandingPage');
+        return Inertia::render('LandingPage', [
+            'user' => Auth::user(), // Pass the authenticated user
+        ]);
     }
 }
