@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Inertia\Inertia; // Make sure to include Inertia
 
 class AuthController extends Controller
 {
@@ -15,29 +16,34 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             $user = Auth::user();
-            return response()->json(['user' => $user], 200);
+            // Return an Inertia response after successful login
+            return redirect()->route('landing.page'); // Ensure this route is defined
         }
 
-        return response()->json(['error' => 'Invalid credentials'], 401);
+        return back()->withErrors(['error' => 'Invalid credentials']); // Use back for Inertia error handling
     }
 
     public function register(Request $request)
     {
+        // Validate incoming request data
         $validated = $request->validate([
-            'name' => 'required|string|max:255',
+            'firstName' => 'required|string|max:255',
+            'lastName' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|confirmed',
         ]);
 
+        // Create a new user
         $user = User::create([
-            'name' => $validated['name'],
+            'name' => $validated['firstName'] . ' ' . $validated['lastName'], // Combining first and last name
             'email' => $validated['email'],
             'password' => Hash::make($validated['password']),
         ]);
 
+        // Log the user in
         Auth::login($user);
 
-        return response()->json(['user' => $user], 201);
+        // Redirect to the landing page using Inertia's response
+        return redirect()->route('landing.page'); // Make sure this route matches your routes
     }
 }
-

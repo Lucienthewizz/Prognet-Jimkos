@@ -14,7 +14,7 @@ export default {
         extend: {
             fontFamily: {
                 sans: ["Poppins", "sans-serif"],
-                fair: ["Playfair Display", "sans-serif"],
+
             },
             colors: {
                 primary: "#164ba1", // Dark Blue

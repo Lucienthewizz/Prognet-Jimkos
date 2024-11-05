@@ -11,26 +11,29 @@ return new class extends Migration
      */
     public function up(): void
     {
+        // Create the users table
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('google_id')->nullable()->after('password');
-            $table->string('profile_picture')->nullable()->after('google_id');
+            $table->string('google_id')->nullable();
+            $table->string('profile_picture')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
 
+        // Create the password_reset_tokens table
         Schema::create('password_reset_tokens', function (Blueprint $table) {
             $table->string('email')->primary();
             $table->string('token');
             $table->timestamp('created_at')->nullable();
         });
 
+        // Create the sessions table
         Schema::create('sessions', function (Blueprint $table) {
             $table->string('id')->primary();
-            $table->foreignId('user_id')->nullable()->index();
+            $table->foreignId('user_id')->nullable()->constrained()->index(); // Foreign key reference to users table
             $table->string('ip_address', 45)->nullable();
             $table->text('user_agent')->nullable();
             $table->longText('payload');
@@ -43,11 +46,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
-        Schema::dropIfExists('password_reset_tokens');
+        // Drop the sessions table first due to foreign key constraints
         Schema::dropIfExists('sessions');
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn(['google_id', 'profile_picture']);
-        });
+        Schema::dropIfExists('password_reset_tokens');
+        Schema::dropIfExists('users');
     }
 };
