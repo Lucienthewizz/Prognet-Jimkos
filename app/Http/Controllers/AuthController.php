@@ -6,44 +6,49 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
-use Inertia\Inertia; // Make sure to include Inertia
+use Inertia\Inertia; // Pastikan Inertia sudah di-import
 
 class AuthController extends Controller
 {
+    // Fungsi untuk login user
     public function login(Request $request)
     {
+        // Ambil data email dan password dari request
         $credentials = $request->only('email', 'password');
 
+        // Cek apakah email dan password cocok di database
         if (Auth::attempt($credentials)) {
-            $user = Auth::user();
-            // Return an Inertia response after successful login
-            return redirect()->route('landing.page'); // Ensure this route is defined
+            $user = Auth::user(); // Ambil data user yang sedang login
+            // Kalau berhasil login, arahkan ke halaman landing page
+            return redirect()->route('landing.page'); // Pastikan route ini sudah ada
         }
 
-        return back()->withErrors(['error' => 'Invalid credentials']); // Use back for Inertia error handling
+        // Kalau login gagal, balikin ke halaman sebelumnya dengan pesan error
+        return back()->withErrors(['error' => 'Email atau password salah']);
     }
 
+    // Fungsi untuk registrasi user baru
     public function register(Request $request)
     {
-        // Validate incoming request data
+        // Validasi data yang masuk dari form registrasi
         $validated = $request->validate([
-            'firstName' => 'required|string|max:255',
-            'lastName' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:8|confirmed',
+            'firstName' => 'required|string|max:255', // Nama depan wajib diisi
+            'lastName' => 'required|string|max:255',  // Nama belakang wajib diisi
+            'email' => 'required|string|email|max:255|unique:users', // Email harus valid dan belum pernah dipakai
+            'password' => 'required|string|min:8|confirmed', // Password minimal 8 karakter dan harus cocok dengan konfirmasi
         ]);
 
-        // Create a new user
+        // Buat user baru di database
         $user = User::create([
-            'name' => $validated['firstName'] . ' ' . $validated['lastName'], // Combining first and last name
+            'name' => $validated['firstName'] . ' ' . $validated['lastName'], // Gabung nama depan dan belakang
             'email' => $validated['email'],
-            'password' => Hash::make($validated['password']),
+            'password' => Hash::make($validated['password']), // Enkripsi password sebelum disimpan
         ]);
 
-        // Log the user in
+        // Login otomatis setelah registrasi
         Auth::login($user);
 
-        // Redirect to the landing page using Inertia's response
-        return redirect()->route('landing.page'); // Make sure this route matches your routes
+        // Setelah berhasil registrasi, arahkan ke halaman landing page
+        return redirect()->route('landing.page');
     }
 }

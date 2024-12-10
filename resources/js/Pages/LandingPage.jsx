@@ -9,12 +9,8 @@ import RegisterKosSection from "@Container/LandingPageSections/RegisterKosSectio
 import TestimonialsSection from "@Container/LandingPageSections/TestimonialsSection";
 import FeaturesSection from "@Container/LandingPageSections/FeaturesSection";
 import AdsSection from "@Container/LandingPageSections/AdsSection";
-import LoginModal from "@Container/Modals/LoginModal";
-import RegisterModal from "@Container/Modals/RegisterModal";
 
 const LandingPage = () => {
-    const [showLoginModal, setShowLoginModal] = useState(false);
-    const [showRegisterModal, setShowRegisterModal] = useState(false);
 
     useEffect(() => {
         AOS.init({
@@ -25,22 +21,15 @@ const LandingPage = () => {
         });
     }, []);
 
-    const openLoginModal = () => setShowLoginModal(true);
-    const closeLoginModal = () => setShowLoginModal(false);
-    const openRegisterModal = () => setShowRegisterModal(true);
-    const closeRegisterModal = () => setShowRegisterModal(false);
-
     return (
         <PublicLayout>
             <Head title="Jimkos | Informasi Kos-Kosan Terbaik di Jimbaran" />
-            <HeroSection onLogin={openLoginModal} onRegister={openRegisterModal} />
+            <HeroSection />
             <AdsSection />
             <FeaturesSection />
             <PopularKosSection />
             <RegisterKosSection />
             <TestimonialsSection />
-            {showLoginModal && <LoginModal closeModal={closeLoginModal} />}
-            {showRegisterModal && <RegisterModal closeModal={closeRegisterModal} />}
         </PublicLayout>
     );
 };
