@@ -3,53 +3,66 @@
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-use App\Http\Controllers\SocialAuthController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LandingPageController;
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\KostController;
+use App\Http\Controllers\KostManagerController;
+use App\Http\Controllers\AdminKostController;
+use App\Http\Controllers\AdminController;
 
-// Landing Page
-Route::get('/', [LandingPageController::class, 'index'])->name('landing.page');
-
-// About Us Page
-Route::get('/about-us', function () {
-    return Inertia::render('AboutUsPage');
-});
-
-// Daftar Kost Page
-Route::get('/daftar-kost', function () {
-    return Inertia::render('DaftarKostPage');
-});
-
-// Kontak Page 
+// Public Routes
+Route::get('/', [LandingPageController::class, 'index'])
+    ->name('landing-page');
+Route::get('/about-us', [PageController::class, 'about'])->name('about');
+Route::get('/daftar-kost', [KostController::class, 'index'])
+    ->name('daftar-kost');
 Route::get('/kontak', function () {
     return Inertia::render('KontakPage');
+})->name('kontak');
+
+// Authentication Routes
+Route::middleware('guest')->group(function () {
+    Route::get('/login', function () {
+        return Inertia::render('Auth/Login');
+    })->name('login');
+    
+    Route::post('/login', [AuthController::class, 'login'])->name('login.post');
+    
+    Route::get('/register', function () {
+        return Inertia::render('Auth/Register');
+    })->name('register');
+    
+    Route::post('/register', [AuthController::class, 'register'])->name('register.post');
 });
 
-// Login Page
-Route::get('/login', function () {
-    return Inertia::render('Auth/Login');
+Route::post('/logout', [AuthController::class, 'logout'])
+    ->name('logout')
+    ->middleware('auth');
+
+// Kost Manager Routes
+Route::middleware(['auth', 'checkRole:kost_manager'])->group(function () {
+    Route::get('/kost-manager/dashboard', [KostManagerController::class, 'dashboard'])
+        ->name('kost-manager.dashboard');
+    Route::get('/kost-manager/create', [KostManagerController::class, 'create'])
+        ->name('kost-manager.create');
+    Route::post('/kost-manager/store', [KostManagerController::class, 'store'])
+        ->name('kost-manager.store');
 });
 
-// Register Page
-Route::get('/register', function () {
-    return Inertia::render('Auth/Register');
+// Admin Routes
+Route::middleware(['auth', 'checkRole:admin'])->group(function () {
+    Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])
+        ->name('admin.dashboard');
+    Route::get('/admin/kosts/pending', [AdminKostController::class, 'pendingKosts'])
+        ->name('admin.kosts.pending');
+    Route::patch('/admin/kosts/{kost}/verify', [AdminKostController::class, 'verifyKost'])
+        ->name('admin.kosts.verify');
 });
 
-// Halaman Not Found
+// Fallback Route
 Route::fallback(function () {
     return Inertia::render('Errors/NotFound');
 });
 
-// Routes for login and registration
-Route::post('/login', [AuthController::class, 'login']);
-Route::post('/register', [AuthController::class, 'register']);
-
-// Routes for Google authentication
-Route::middleware(['web'])->group(function () {
-    Route::get('/auth/google', [SocialAuthController::class, 'redirectToGoogle'])->name('google.redirect');
-    Route::get('/auth/google/callback', [SocialAuthController::class, 'handleGoogleCallback'])->name('google.callback');
-});
-
-// Logout Route
-Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
-
+Route::get('/kost/{id}', [KostController::class, 'show'])->name('kost.show');

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from '@inertiajs/react';
 
 const HeroSection = () => {
     return (
@@ -35,16 +36,16 @@ const HeroSection = () => {
                     <p className="mb-8 text-base sm:text-lg md:text-lg text-light-text">
                         Mencari tempat tinggal ideal? JimKos mempermudah pencarian kos yang sesuai dengan kebutuhan Anda!
                     </p>
-                    <a
-                        href="#"
+                    <Link
+                        href={route('daftar-kost')}
                         className="inline-block px-6 py-3 text-sm sm:text-base md:text-lg lg:text-xl font-medium transition duration-300 ease-in-out transform rounded-md cta-button bg-primary text-background hover:bg-secondary hover:-translate-y-0.5 hover:text-background md:my-0 md:mx-auto"
                     >
                         Cari Kos Sekarang
-                    </a>
+                    </Link>
                 </div>
 
                 {/* Display image only on large screens */}
-                <div className="justify-center hidden mt-10 lg:flex md:mt-0" data-aos="fade-left"> {/* Add AOS attribute for the image */}
+                <div className="hidden justify-center mt-10 lg:flex md:mt-0" data-aos="fade-left"> {/* Add AOS attribute for the image */}
                     <img
                         src="/images/Hero-Images.png"
                         alt="Kos di Jimbaran"

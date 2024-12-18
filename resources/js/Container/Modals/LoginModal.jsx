@@ -118,20 +118,9 @@ const LoginModal = ({ closeModal, openRegisterModal }) => {
                     </div>
                 </form>
 
-                {/* Login dengan Google */}
-                <div className="mt-6">
-                    <SecondaryButton
-                        type="button"
-                        onClick={() => window.location.href = "/auth/google"}
-                        className="flex w-full justify-center rounded-md bg-white hover:bg-gray-100 border border-gray-300 px-3 py-1.5 text-sm font-semibold leading-6 text-gray-700 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-                    >
-                        <i className="mr-2 text-lg ri-google-line"></i> Sign in with Google
-                    </SecondaryButton>
-                </div>
-
                 {/* Opsi Daftar */}
                 <p className="mt-6 text-sm text-center text-gray-500">
-                    Don’t have an account?{" "}
+                    Don't have an account?{" "}
                     <button
                         onClick={() => {
                             closeModal();

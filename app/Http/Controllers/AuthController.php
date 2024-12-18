@@ -2,53 +2,70 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\User;
 use Illuminate\Support\Facades\Hash;
-use Inertia\Inertia; // Pastikan Inertia sudah di-import
+use Inertia\Inertia;
 
 class AuthController extends Controller
 {
-    // Fungsi untuk login user
     public function login(Request $request)
     {
-        // Ambil data email dan password dari request
-        $credentials = $request->only('email', 'password');
+        $credentials = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
 
-        // Cek apakah email dan password cocok di database
         if (Auth::attempt($credentials)) {
-            $user = Auth::user(); // Ambil data user yang sedang login
-            // Kalau berhasil login, arahkan ke halaman landing page
-            return redirect()->route('landing.page'); // Pastikan route ini sudah ada
+            $request->session()->regenerate();
+
+            // Redirect berdasarkan role
+            $user = Auth::user();
+            if ($user->role === 'admin') {
+                return redirect()->route('admin.dashboard');
+            } elseif ($user->role === 'kost_manager') {
+                return redirect()->route('kost-manager.dashboard');
+            }
+            return redirect()->intended('/');
         }
 
-        // Kalau login gagal, balikin ke halaman sebelumnya dengan pesan error
-        return back()->withErrors(['error' => 'Email atau password salah']);
+        return back()->withErrors([
+            'email' => 'Email atau password salah.',
+        ]);
     }
 
-    // Fungsi untuk registrasi user baru
     public function register(Request $request)
     {
-        // Validasi data yang masuk dari form registrasi
         $validated = $request->validate([
-            'firstName' => 'required|string|max:255', // Nama depan wajib diisi
-            'lastName' => 'required|string|max:255',  // Nama belakang wajib diisi
-            'email' => 'required|string|email|max:255|unique:users', // Email harus valid dan belum pernah dipakai
-            'password' => 'required|string|min:8|confirmed', // Password minimal 8 karakter dan harus cocok dengan konfirmasi
+            'firstName' => 'required|string|max:255',
+            'lastName' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:8',
+            'role' => 'required|in:user,kost_manager',
         ]);
 
-        // Buat user baru di database
         $user = User::create([
-            'name' => $validated['firstName'] . ' ' . $validated['lastName'], // Gabung nama depan dan belakang
+            'name' => $validated['firstName'] . ' ' . $validated['lastName'],
             'email' => $validated['email'],
-            'password' => Hash::make($validated['password']), // Enkripsi password sebelum disimpan
+            'password' => Hash::make($validated['password']),
+            'role' => $validated['role'],
         ]);
 
-        // Login otomatis setelah registrasi
         Auth::login($user);
 
-        // Setelah berhasil registrasi, arahkan ke halaman landing page
-        return redirect()->route('landing.page');
+        if ($user->role === 'kost_manager') {
+            return redirect()->route('kost-manager.dashboard');
+        }
+        
+        return redirect('/');
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/');
     }
 }

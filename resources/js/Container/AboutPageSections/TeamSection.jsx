@@ -20,7 +20,7 @@ const TeamSection = () => {
                 "Memiliki pengalaman lebih dari 15 tahun dalam memimpin perusahaan teknologi.",
             image: "/images/Foto/Tugus.jpg",
             social: {
-                instagram: "#",
+                instagram: "https://www.instagram.com/ibagungwp/profilecard/?igsh=ZzQyejZ4MjJ5ZGNo",
                 linkedin: "#",
                 twitter: "#",
                 github: "#",
@@ -73,7 +73,7 @@ const TeamSection = () => {
                 Temui Tim Inovatif 
                 <span className="text-primary"> <span className="font-bold">Jim</span>Kos</span>
             </h2>
-            <h4 className="w-full mb-10 text-base text-gray-600 md:text-lg" data-aos="fade-up" data-aos-delay="100">
+            <h4 className="mb-10 w-full text-base text-gray-600 md:text-lg" data-aos="fade-up" data-aos-delay="100">
                 Kami adalah tim profesional yang berdedikasi untuk menyediakan
                 solusi inovatif dan layanan berkualitas tinggi. Dengan latar
                 belakang beragam dan pengalaman luas, kami berkomitmen untuk
@@ -86,14 +86,15 @@ const TeamSection = () => {
             {/* Daftar anggota tim */}
             <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4">
                 {teamMembers.map((member, index) => (
-                    <TeamMember 
-                        key={index} 
-                        member={member} 
-                        index={index} 
-                        data-aos="fade-up" 
-                        data-aos-delay={`${200 + index * 50}`} // Tambahkan delay untuk setiap anggota tim, dengan sedikit jeda
-                        data-aos-duration="800" // Durasi animasi yang lebih cepat
-                    />
+                    <div key={index} className="team-member">
+                        <TeamMember 
+                            member={member} 
+                            index={index} 
+                            data-aos="fade-up" 
+                            data-aos-delay={`${200 + index * 50}`} // Tambahkan delay untuk setiap anggota tim, dengan sedikit jeda
+                            data-aos-duration="800" // Durasi animasi yang lebih cepat
+                        />
+                    </div>
                 ))}
             </div>
         </section>

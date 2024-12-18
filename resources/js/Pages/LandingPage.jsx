@@ -23,13 +23,15 @@ const LandingPage = () => {
 
     return (
         <PublicLayout>
-            <Head title="Jimkos | Informasi Kos-Kosan Terbaik di Jimbaran" />
-            <HeroSection />
-            <AdsSection />
-            <FeaturesSection />
-            <PopularKosSection />
-            <RegisterKosSection />
-            <TestimonialsSection />
+            <div className="landing-page">
+                <Head title="Jimkos | Informasi Kos-Kosan Terbaik di Jimbaran" />
+                <HeroSection />
+                <AdsSection />
+                <FeaturesSection />
+                <PopularKosSection />
+                <RegisterKosSection />
+                <TestimonialsSection />
+            </div>
         </PublicLayout>
     );
 };

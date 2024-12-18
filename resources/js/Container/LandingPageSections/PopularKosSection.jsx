@@ -1,6 +1,6 @@
 import React from "react";
-import KosSwiper from "@Components/LandingPages/KosProps/KosSwiper"; // Import the KosSwiper component
-import KosNavigation from "@Components/LandingPages/KosProps/KosNavigation"; // Import the NavigationButtons component
+import KosSwiper from "@Components/LandingPages/KosProps/KosSwiper";
+import KosNavigation from "@Components/LandingPages/KosProps/KosNavigation";
 import popularKosData from "@Components/LandingPages/KosProps/popularKosData";
 
 const PopularKosSection = () => {

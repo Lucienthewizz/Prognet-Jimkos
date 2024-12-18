@@ -22,7 +22,7 @@ a:hover {
 
 /* Modal styles */
 .modal {
-    @apply p-6 bg-white rounded-lg shadow-lg bg-opacity-90 backdrop-blur-lg;
+    @apply p-6 bg-white bg-opacity-90 rounded-lg shadow-lg backdrop-blur-lg;
 }
 
 .glow-icon {
@@ -45,6 +45,31 @@ a:hover {
     z-index: -1;
 }
 
+.team-member {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar-container {
+    width: 300px; /* Default width */
+}
+
+@media (max-width: 1100px) {
+    .search-bar-container {
+        width: 200px; /* Width for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .search-bar-container {
+        width: 300px; /* Width for very small screens */
+    }
+}
+
 @keyframes pulse {
     0% {
         transform: scale(0.7); /* Skala awal lebih kecil */
@@ -57,6 +82,17 @@ a:hover {
     100% {
         transform: scale(0.7); /* Kembali ke skala kecil */
         opacity: 0.3;
+    }
+}
+
+@media (max-width: 768px) {
+    .landing-page {
+        /* Sembunyikan animasi di landing page untuk mobile */
+        [data-aos] {
+            opacity: 1 !important;
+            transform: none !important;
+            visibility: visible !important;
+        }
     }
 }
 

@@ -8,6 +8,7 @@ const popularKosData = [
             { icon: "ri-air-conditioner-line", name: "AC" },
             { icon: "ri-parking-box-line", name: "Parkir Motor" },
         ],
+        link: "/kos-detail/1"
     },
     {
         imageUrl: "/images/Gambar-2.jpg",
@@ -19,6 +20,7 @@ const popularKosData = [
             { icon: "ri-tv-line", name: "TV" },
             { icon: "ri-parking-box-line", name: "Parkir Mobil" },
         ],
+        link: "/kos-detail/2"
     },
     {
         imageUrl: "/images/Gambar-3.jpg",
@@ -29,6 +31,7 @@ const popularKosData = [
             { icon: "ri-fan-line", name: "Kipas Angin" },
             { icon: "ri-parking-box-line", name: "Parkir Motor" },
         ],
+        link: "/kos-detail/3"
     },
     {
         imageUrl: "/images/Gambar-4.jpg",
@@ -40,6 +43,7 @@ const popularKosData = [
             { icon: "ri-24-hours-line", name: "Akses 24 Jam" },
             { icon: "ri-parking-box-line", name: "Parkir Motor & Mobil" },
         ],
+        link: "/kos-detail/4"
     },
     {
         imageUrl: "/images/Gambar-8.jpg",
@@ -50,6 +54,7 @@ const popularKosData = [
             { icon: "ri-fan-line", name: "Kipas Angin" },
             { icon: "ri-parking-box-line", name: "Parkir Motor" },
         ],
+        link: "/kos-detail/5"
     },
     {
         imageUrl: "/images/Gambar-6.jpg",
@@ -60,6 +65,7 @@ const popularKosData = [
             { icon: "ri-air-conditioner-line", name: "AC" },
             { icon: "ri-parking-box-line", name: "Parkir Mobil" },
         ],
+        link: "/kos-detail/6"
     },
     {
         imageUrl: "/images/Gambar-9.jpg",
@@ -71,6 +77,7 @@ const popularKosData = [
             { icon: "ri-parking-box-line", name: "Parkir Mobil" },
             { icon: "ri-air-conditioner-line", name: "AC" },
         ],
+        link: "/kos-detail/7"
     },
     {
         imageUrl: "/images/Gambar-10.jpg",
@@ -81,6 +88,7 @@ const popularKosData = [
             { icon: "ri-parking-box-line", name: "Parkir Motor" },
             { icon: "ri-24-hours-line", name: "Akses 24 Jam" },
         ],
+        link: "/kos-detail/8"
     },
 ];
 

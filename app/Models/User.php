@@ -19,8 +19,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'google_id',         // Add this line to store Google ID
-        'profile_picture',    // Add this line to store profile picture URL
+        'role'
     ];
 
     /**
@@ -44,5 +43,20 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function kosts()
+    {
+        return $this->hasMany(Kost::class, 'manager_id');
+    }
+
+    public function isAdmin()
+    {
+        return $this->role === 'admin';
+    }
+
+    public function isKostManager()
+    {
+        return $this->role === 'kost_manager';
     }
 }
