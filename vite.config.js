@@ -6,9 +6,8 @@ import path from "path";
 export default defineConfig({
     plugins: [
         laravel({
-            input: "resources/js/app.jsx",
+            input: "resources/js/app.jsx", // Entri utama aplikasi React
             refresh: true,
-            buildDirectory: "public/build", 
         }),
         react(),
     ],
@@ -22,4 +21,8 @@ export default defineConfig({
             "@Pages": path.resolve(__dirname, "./resources/js/Pages"),
         },
     },
+    build: {
+        outDir: "public/build", // Folder keluaran hasil build
+    },
+    base: "/build/", // URL base untuk mengakses file build
 });
